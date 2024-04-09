@@ -31,7 +31,7 @@ const Signup: FC<SignupProps> = ({ }) => {
     const { data: session, status } = useSession()
   
     if (status === "authenticated") {
-      redirect('/dashboard');
+      redirect('/pages/dashboard');
     }  
      
   

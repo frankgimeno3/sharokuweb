@@ -26,8 +26,9 @@ const Tipo: React.FC<TipoProps> = ({ userType, handleUserTypeChange }) => {
         required
         className="bg-transparent block w-full rounded-md border-0   py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
       >
-        <option value="profesional" className='bg-gray-100 text-black'>Profesional</option>
-        <option value="empresa" className='bg-gray-100 text-black'>Empresa</option>
+        <option value="propietario" className='bg-gray-100 text-black'>Propietario</option>
+        <option value="inquilino" className='bg-gray-100 text-black'>Inquilino</option>
+        <option value="servicios" className='bg-gray-100 text-black'>Proveedor de servicios</option>
       </select>
     </div>
   </div>  );

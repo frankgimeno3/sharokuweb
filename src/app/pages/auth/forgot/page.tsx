@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 import { auth } from '@/app/firebase';
-import NavUnlogged from '@/app/components/logged/NavUnlogged';
+import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
 
 
 export default function ForgotPassword() {

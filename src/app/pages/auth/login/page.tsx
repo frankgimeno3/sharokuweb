@@ -79,6 +79,11 @@ const Login: FC<LoginProps> = ({ }) => {
                     Iniciar sesión
                   </button>
                 </div>
+                <div className="text-sm">
+                      <div onClick={() => router.push('/pages/auth/signup')} className="cursor-pointer font-semibold text-blue-400 hover:text-blue-300">
+                        No dispone de una cuenta? Crear cuenta
+                      </div>
+                    </div>
               </div>
 
             </form>
