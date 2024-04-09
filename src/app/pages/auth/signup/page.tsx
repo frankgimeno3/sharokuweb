@@ -1,3 +1,4 @@
+"use client"
 import { useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';

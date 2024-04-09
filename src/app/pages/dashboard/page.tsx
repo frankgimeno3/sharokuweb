@@ -1,3 +1,4 @@
+"use client"
 import React, { FC } from 'react';
 import MDashboard from './pages/mobile/MDashboard';
 import WDashboard from './pages/web/WDashboard';

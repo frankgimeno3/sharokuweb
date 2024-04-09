@@ -4,7 +4,7 @@ import SessionProvider from './SessionProvider';
 
 
 export const metadata = {
-  title: 'Vidrioku',
+  title: 'Sharoku',
   description: 'Frank Gimeno Portfolio',
 
 }
