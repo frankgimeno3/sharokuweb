@@ -8,6 +8,7 @@ import Contras from './signupComponents/Contras';
 import { doc, setDoc } from '@firebase/firestore';
 import { auth, db } from '@/app/firebase';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
+import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
 
 interface SignupProps {
   
@@ -73,6 +74,8 @@ const Signup: FC<SignupProps> = ({ }) => {
     }; 
   return (
     <>
+                <NavUnlogged />
+
                     <form onSubmit={(e) => {
                   e.preventDefault();
                   signup();

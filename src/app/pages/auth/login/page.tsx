@@ -1,4 +1,5 @@
 "use client"
+import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
 import { signIn, useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
@@ -23,6 +24,9 @@ const Login: FC<LoginProps> = ({ }) => {
     }
 
   return (
+    <>
+                <NavUnlogged />
+
 <form className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"
             onSubmit={(e) => {
               e.preventDefault();
@@ -87,6 +91,8 @@ const Login: FC<LoginProps> = ({ }) => {
               </div>
 
             </form>
+            </>
+
   );
 };
 
