@@ -7,7 +7,9 @@ interface WDashboardProps {
 
 const WDashboard: FC<WDashboardProps> = ({ }) => {
   return (
-    <div>WDashboard</div>
+    <div>
+      <p></p>
+    </div>
   );
 };
 
