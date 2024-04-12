@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
 
-interface ProfesionalesContentProps {
+interface InquilinosContentProps {
     setNombre: any
     setApellidos: any
     setEdad: any
@@ -10,14 +10,14 @@ interface ProfesionalesContentProps {
     setUbi: any
 }
 
-const ProfesionalesContent: React.FC<ProfesionalesContentProps> = ({ setNombre, setApellidos, setEdad, setGenero, setUbi }) => {
+const InquilinosContent: React.FC<InquilinosContentProps> = ({ setNombre, setApellidos, setEdad, setGenero, setUbi }) => {
     const router = useRouter();
 
     return (
         <div>
             <label htmlFor="nombre" className="block text-sm font-medium leading-6 text-white ">
                 Nombre completo (sin apellidos)
-            </label> 
+            </label>
             <div className="mt-2">
                 <input
                     id="nombre"
@@ -32,7 +32,7 @@ const ProfesionalesContent: React.FC<ProfesionalesContentProps> = ({ setNombre, 
 
             <label htmlFor="apellidos" className="block text-sm font-medium leading-6 text-white  mt-3">
                 Apellidos
-            </label> 
+            </label>
             <div className="mt-2">
                 <input
                     id="apellidos"
@@ -47,7 +47,7 @@ const ProfesionalesContent: React.FC<ProfesionalesContentProps> = ({ setNombre, 
 
             <label htmlFor="edad" className="block text-sm font-medium leading-6 text-white  mt-3">
                 Año de nacimiento
-            </label> 
+            </label>
             <div className="mt-2">
                 <input
                     id="edad"
@@ -61,23 +61,26 @@ const ProfesionalesContent: React.FC<ProfesionalesContentProps> = ({ setNombre, 
             </div>
 
             <label htmlFor="genero" className="block text-sm font-medium leading-6 text-white mt-3">
-                 Género
-            </label> 
+                Género
+            </label>
             <div className="mt-2">
-                <input
+                <select
                     id="genero"
                     name="genero"
-                    type="text"
                     autoComplete="genero"
                     onChange={(e) => setGenero(e.target.value)}
                     required
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                />
+                >
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Otros">Otros</option>
+                </select>
             </div>
 
             <label htmlFor="ubi" className="block text-sm font-medium leading-6 text-white  mt-3">
                 Residencia actual
-            </label> 
+            </label>
             <div className="mt-2">
                 <input
                     id="ubi"
@@ -93,4 +96,4 @@ const ProfesionalesContent: React.FC<ProfesionalesContentProps> = ({ setNombre, 
     );
 };
 
-export default ProfesionalesContent;
+export default InquilinosContent;

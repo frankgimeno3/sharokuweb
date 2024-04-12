@@ -18,7 +18,7 @@ const Signup: FC<SignupProps> = ({ }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordAgain, setPasswordAgain] = useState('');
-    const [userType, setUserType] = useState('profesional');
+    const [userType, setUserType] = useState('inquilino');
     const [isAccepted, setIsAccepted] = useState(false);
   
     const [nombre, setNombre] = useState("");
@@ -46,9 +46,10 @@ const Signup: FC<SignupProps> = ({ }) => {
     };
   
     const addUserInFirebase = async () => {
-         if (email !== '' && password !== '' && passwordAgain !== '' && nombre !== '' && apellidos !== '' && ubi !== '') {
+          if (email !== '' && password !== '' && passwordAgain !== '') {
           const userDocRef = doc(db, 'users', email.trim());
-  
+          console.log("check de que todo funciona desde addUserIn Firebase! nombre: ", nombre, ", email:", email,
+          ", apellidos: ", apellidos, ", edad: ", edad, ", genero: ", genero, ", ubi: ", ubi, )
           await setDoc(userDocRef, {
             nombre: nombre.trim(),
             email: email.trim(),
@@ -57,8 +58,7 @@ const Signup: FC<SignupProps> = ({ }) => {
             genero: genero.trim(),
             ubi: ubi.trim(),
             userType: userType.trim(),
-            solicitudes: []
-          });
+           });
         }
       
     
@@ -69,7 +69,7 @@ const Signup: FC<SignupProps> = ({ }) => {
       addUserInFirebase();  
       setIsAccepted(true);
       setTimeout(() => {
-        router.push("/signin");
+        router.push("/pages/dashboard");
       }, 3500); 
     }; 
   return (
@@ -83,7 +83,7 @@ const Signup: FC<SignupProps> = ({ }) => {
                   <Correo setEmail={setEmail} />
                   <Tipo userType={userType} handleUserTypeChange={handleUserTypeChange} />
                   <Contras setPassword={setPassword} setPasswordAgain={setPasswordAgain} />
- 
+
                    
                   <div>
                     <button
