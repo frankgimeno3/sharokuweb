@@ -16,6 +16,10 @@ const WDashboard: FC<WDashboardProps> = ({ currentLefBarElement, setCurrentLefBa
         <TopNavbar />
 
         <p>Welcome, X</p>
+        <p>AQUÍ DEBERÍA MOSTRARSE EL USER.USERTYPE PARA TENER YO UNA REFERENCIA</p>
+        <p>ACTUALMENTE ME RENDERIZA SOLAMENTE INQUILINO</p>
+        <p>CENTRALIZAR USER CON REDUX, Y AUTOMATIZAR PETICION A BBDD</p>
+        <p>LUEGO DESDE SUBCOMPONENTES, SIMPLEMENTE CONSUMIR EL OBJETO</p>
         <p>Contenido destacado:</p>
       </div>
     </div>
