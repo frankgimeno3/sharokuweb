@@ -1,49 +1,36 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../store';  
 
-// Definición del tipo de datos para el usuario
 interface User {
-  id: string;
-  email: string;
-  // Agrega cualquier otra propiedad que necesites para el usuario
+  id: any;
+  apellidos: string;
+  edad: number;
+  genero: string;
+  nombre: string;
+  ubi: string;
+  userEmail: string;
+  conversations: any;
 }
 
-// Tipo de estado para el slice de usuario
 interface UserState {
-  currentUser: User | null;
-  redirectSignin: boolean;
-}
+  user: User | null; 
+ }
 
-// Estado inicial para el slice de usuario
 const initialState: UserState = {
-  currentUser: null,
-  redirectSignin: false,
+  user: null,
 };
 
-// Creación del slice de usuario
-export const userSlice = createSlice({
-  name: "user",
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
-    // Acción para comprobar si hay un usuario actualmente logueado
-    comprobarUsuario: (state) => {
-      state.redirectSignin = !state.currentUser;
-    },
-    // Acción para redirigir a la página de inicio de sesión
-    redirigirSignin: (state) => {
-      state.redirectSignin = true;
-    },
-    // Acción para guardar los datos del usuario en el estado
-    guardarUsuario: (state, action: PayloadAction<User>) => {
-      state.currentUser = action.payload;
-    },
-    // Acción para obtener los datos del usuario
-    getUsuario: (state) => {
-      // Realiza cualquier operación necesaria para obtener los datos del usuario
-      // Puedes implementar lógica de consulta aquí si es necesario
+    updateUser(state, action: PayloadAction<User>) {
+      state.user = action.payload; 
     },
   },
 });
 
-// Exportar acciones generadas automáticamente y el reducer del slice de usuario
-export const { comprobarUsuario, redirigirSignin, guardarUsuario, getUsuario } = userSlice.actions;
-export default userSlice.reducer;
+export const { updateUser } = userSlice.actions;  
+export default userSlice.reducer;  
+
+export const selectUser = (state: RootState) => state.user.user;
