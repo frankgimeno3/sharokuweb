@@ -27,6 +27,8 @@ const Tipo: React.FC<TipoProps> = ({ userType, handleUserTypeChange }) => {
           <option value="propietario" className='bg-gray-100 text-black'>Propietario</option>
           <option value="inquilino" className='bg-gray-100 text-black'>Inquilino</option>
           <option value="servicios" className='bg-gray-100 text-black'>Proveedor de servicios</option>
+          <option value="servicios" className='bg-gray-100 text-black'>Administrador de fincas</option>
+          <option value="servicios" className='bg-gray-100 text-black'>Moderador</option>
         </select>
       </div>
     </div>);
