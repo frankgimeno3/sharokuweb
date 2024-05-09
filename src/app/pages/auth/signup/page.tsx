@@ -80,6 +80,8 @@ const Signup: FC<SignupProps> = ({ }) => {
         e.preventDefault();
         signup();
       }}         className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"      >
+                <div className="space-y-6">
+
         <Correo setEmail={setEmail} />
         <Tipo userType={userType} handleUserTypeChange={handleUserTypeChange} />
         <Contras setPassword={setPassword} setPasswordAgain={setPasswordAgain} />
@@ -93,7 +95,8 @@ const Signup: FC<SignupProps> = ({ }) => {
           >
             Crear cuenta
           </button>
-        </div>
+          </div>
+          </div>
       </form>
     </>
   );

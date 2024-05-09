@@ -4,7 +4,7 @@ import { signIn, useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 import React, { FC, useEffect, useState } from 'react';
 
-interface LoginProps {}
+interface LoginProps { }
 
 const Login: FC<LoginProps> = () => {
   const [email, setEmail] = useState('');
