@@ -14,13 +14,14 @@ const WDashboard: FC<WDashboardProps> = ({ currentLefBarElement, setCurrentLefBa
       <LeftBar currentLeftBarElement={currentLefBarElement} setCurrentLeftBarElement={setCurrentLefBarElement} />
       <div className='flex flex-col w-full bg-gray-100 text-gray-500'>
         <TopNavbar />
-
+        <div className='p-12'>
         <p>Welcome, X</p>
         <p>AQUÍ DEBERÍA MOSTRARSE EL USER.USERTYPE PARA TENER YO UNA REFERENCIA</p>
         <p>ACTUALMENTE ME RENDERIZA SOLAMENTE INQUILINO</p>
         <p>CENTRALIZAR USER CON REDUX, Y AUTOMATIZAR PETICION A BBDD</p>
         <p>LUEGO DESDE SUBCOMPONENTES, SIMPLEMENTE CONSUMIR EL OBJETO</p>
         <p>Contenido destacado:</p>
+        </div>
       </div>
     </div>
   );

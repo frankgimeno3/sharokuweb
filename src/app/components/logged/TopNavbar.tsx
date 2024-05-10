@@ -1,10 +1,21 @@
+import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
+import { signOut } from 'next-auth/react';
 
 interface TopNavbarProps {
 
 }
 
 const TopNavbar: FC<TopNavbarProps> = ({ }) => {
+    const router = useRouter();
+
+    const handleCerrarSesion = async () => {
+        router.push("/")
+        setTimeout(() => {
+          signOut()
+        }, 1000);
+      };
+      
     return (
         <nav className='flex flex-row justify-between align-center items-center bg-white text-gray-600 w-full p-5 text-xl'>
             <p>Sharoku</p>
@@ -12,6 +23,7 @@ const TopNavbar: FC<TopNavbarProps> = ({ }) => {
                 <p className='px-5'>Notifications</p>
                 <p className='px-5'>Settings</p>
                 <svg className="mx-12" fill="#000000" height="35px" width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                onClick={()=>handleCerrarSesion()}
                     xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.989 511.989" xmlSpace="preserve">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"> </g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
