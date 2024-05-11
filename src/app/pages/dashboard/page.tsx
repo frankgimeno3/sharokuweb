@@ -22,7 +22,7 @@ interface User {
   genero: string;
   nombre: string;
   ubi: string;
-  userEmail: string;
+  email: string;
   conversations: any
 }
 
@@ -32,23 +32,26 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
   const [currentBarElement, setCurrentBarElement] = useState("Mi Piso")
   const dispatch = useDispatch();
   const [userData, setUserData] = useState('');
+  const [userObject, setUserObject] = useState<any>();
   const user = useSelector(selectUser); 
 
   const session = useSession({
     required: true,
     onUnauthenticated() {
-      redirect('/signin');
+      redirect('/pages/auth/login');
     },
   });
 
+
+  // ESTOS 2 USEEFFECT SON PARA
+  // EL PRIMERO PARA OBTENER DE SESSION EL EMAIL DE USUARIO
   useEffect(() => {
     if (session?.data?.user?.email) {
       setUserData(session.data.user.email);
-    } else {
-      setUserData('Usuario');
-    }
+    } 
   }, [session?.data?.user?.email]);
 
+  // EL SEGUNDO PARA HACER FETCH CON EL A FIREBASE, OBTENER EL OBJETO COMPLETO, Y PASAR A REDUX
   useEffect(() => {
     const fetchDoc = async () => {
       if (userData) {
@@ -57,6 +60,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
         if (response.exists()) {
           const myUserData = response.data() as User;
           dispatch(updateUser(myUserData));
+          setUserObject(myUserData)
         }
       }
     };
@@ -64,16 +68,13 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
   }, [userData, dispatch]);
 
 
+
   return (
     <Providers >
-      <main className="flex min-h-screen flex-row">
-  
-        {isMobile ? 
-        <MDashboard currentBottomBarElement={currentBarElement} setCurrentBottomBarElement={setCurrentBarElement}/> 
-        : 
-        <WDashboard currentLefBarElement={currentBarElement} setCurrentLefBarElement={setCurrentBarElement}/>}
+      <main className="flex min-h-screen flex-row">    
+        <WDashboard currentLeftBarElement={currentBarElement} setCurrentLeftBarElement={setCurrentBarElement}/> 
       </main>
-      </Providers>
+    </Providers>
   );
 };
 

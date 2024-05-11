@@ -9,10 +9,10 @@ type Props = {
 
 export default function SessionProvider({ children }: Props) {
   return (
-    <NextAuthSessionProvider>
-      <ReduxProvider store={store}>
+      <NextAuthSessionProvider>
+       <ReduxProvider store={store}>
         {children}
-      </ReduxProvider>
-    </NextAuthSessionProvider>
-  );
+       </ReduxProvider>
+     </NextAuthSessionProvider>
+   );
 }

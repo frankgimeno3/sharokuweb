@@ -6,7 +6,7 @@ import { auth } from "@/app/firebase";
 
 export const authOptions = {
   pages: {
-    signIn: '/signin'
+    signIn: '/auth/login'
   },
   providers: [
     CredentialsProvider({

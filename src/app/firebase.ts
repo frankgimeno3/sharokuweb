@@ -17,8 +17,10 @@ const firebaseConfig = {
 // var storage = firebase.storage()     CONTEMPLAR POSIBILIDAD CREAR UN BUCKET DE FIRESTORE PARA ASSETS
 
 // Initialize Firebase
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const db = getFirestore();
-const auth = getAuth();
+const app = initializeApp(firebaseConfig);
 
-export { app, db, auth }
+// Exporta la instancia de Firebase, db y auth
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+export { app, db, auth };
