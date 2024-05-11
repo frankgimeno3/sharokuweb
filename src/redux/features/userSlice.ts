@@ -3,7 +3,7 @@ import { RootState } from '../store';
 
 export interface User {
   id: any;
-  apellidos: string;
+  userType: string;
   edad: number;
   genero: string;
   nombre: string;
