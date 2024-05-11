@@ -33,6 +33,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
   const dispatch = useDispatch();
   const [userData, setUserData] = useState('');
   const [userObject, setUserObject] = useState<any>();
+  const [userTypeReceived, setUserTypeReceived] = useState<string>()
   const user = useSelector(selectUser); 
 
   const session = useSession({
@@ -67,7 +68,13 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
     fetchDoc();
   }, [userData, dispatch]);
 
-
+  useEffect(() => {
+    if (userObject.userType == "inquilino") {setUserTypeReceived("inquilino")}
+    if (userObject.userType == "moderador") {setUserTypeReceived("moderador")}
+    if (userObject.userType == "propietario") {setUserTypeReceived("propietario")}
+    if (userObject.userType == "administrador") {setUserTypeReceived("administrador")}
+    if (userObject.userType == "servicios") {setUserTypeReceived("servicios")}
+  }, [userObject]);
 
   return (
     <Providers >
