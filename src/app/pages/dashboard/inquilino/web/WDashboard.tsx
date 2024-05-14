@@ -35,7 +35,6 @@ const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeft
         <TopNavbar />
         <div className='p-12'>
           <p>Welcome, {emailReceived} {typeReceived} </p>
-          <p className='font-bold py-12 '>Mi piso</p>
           {pisoReceived != "vacio" && pisoReceived != "nulldefined" &&
             <MiPiso />
           }
