@@ -6,8 +6,8 @@ interface MiPisoProps {
 
 const MiPiso: FC<MiPisoProps> = ({ }) => {
   return (
-    <div>MiPiso</div>
-  );
+    <p>Sobre tu piso</p>
+);
 };
 
 export default MiPiso;
