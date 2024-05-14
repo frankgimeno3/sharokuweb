@@ -29,7 +29,10 @@ const Signup: FC<SignupProps> = ({ }) => {
   const [region, setRegion] = useState("");
   const [actividad, setActividad] = useState("");
   const [cifEmpresa, setCifEmpresa] = useState("");
+  const [pisoId, setPisoId] = useState("")
+  
   const { data: session, status } = useSession()
+
 
   if (status === "authenticated") {
     redirect('/pages/dashboard');
@@ -57,6 +60,7 @@ const Signup: FC<SignupProps> = ({ }) => {
         edad: edad.trim(),
         genero: genero.trim(),
         ubi: ubi.trim(),
+        pisoId: pisoId.trim(),
         userType: userType.trim(),
       });
     }

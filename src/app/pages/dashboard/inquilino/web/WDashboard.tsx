@@ -12,14 +12,18 @@ interface WDashboardProps {
 const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeftBarElement }) => {
   const [emailReceived, setEmailReceived] = useState<string>('');
   const [typeReceived, setTypeReceived] = useState<string>('');
+  const [pisoReceived, setPisoReceived] = useState<string>('');
   const user: User | null = useSelector(selectUser);
 
   useEffect(() => {
     if (user) {
-      setEmailReceived(user.email);  
+      setEmailReceived(user.email);
       setTypeReceived(user.userType)
+      if (user.pisoId == "" || user.pisoId=='') {setPisoReceived("vacio")}
+      if (user.pisoId == undefined || user.pisoId==null) {setPisoReceived("nulldefined")}
+      if (user.pisoId != "" && user.pisoId !='' && user.pisoId != undefined  &&  user.pisoId!=null ) {setPisoReceived(`${user.pisoId}`)}
       console.log("user desde wdashboard inquilino", user)
-    }  
+    }
   }, [user]);
 
   return (
@@ -29,11 +33,20 @@ const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeft
         <TopNavbar />
         <div className='p-12'>
           <p>Welcome, {emailReceived} {typeReceived} </p>
-          <p>AQUÍ DEBERÍA MOSTRARSE EL USER.USERTYPE PARA TENER YO UNA REFERENCIA</p>
-          <p>ACTUALMENTE ME RENDERIZA SOLAMENTE INQUILINO</p>
-          <p>CENTRALIZAR USER CON REDUX, Y AUTOMATIZAR PETICION A BBDD</p>
-          <p>LUEGO DESDE SUBCOMPONENTES, SIMPLEMENTE CONSUMIR EL OBJETO</p>
-          <p>Contenido destacado:</p>
+          <p className='font-bold py-12 '>Mi piso</p>
+          {pisoReceived != "vacio" && pisoReceived != "nulldefined" &&
+            <>
+                      <p>Sobre tu piso</p>
+
+            </>
+          }
+          {pisoReceived == "vacio"&&
+            <>
+                                  <p>Actualmente no tienes o no has añadido tu piso o cuarto a sharoku</p>
+
+            </>
+          }
+ 
         </div>
       </div>
     </div>

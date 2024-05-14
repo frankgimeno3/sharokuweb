@@ -9,7 +9,7 @@ export interface User {
   nombre: string;
   ubi: string;
   email: string;
-  conversations: any;
+  pisoId: any;
 }
 
 interface UserState {
