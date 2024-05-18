@@ -25,7 +25,7 @@ const NavUnlogged: FC<NavUnloggedProps> = ({}) => {
     <nav className="flex flex-row justify-between px-5 py-3 items-center px-12 z-30 bg-white text-gray-600 w-full">
       <div className='flex flex-row items-center' onClick={() => handleHome()}>
       <Image
-              className="mx-auto border rounded-md shadow-xl"
+              className="mx-auto border rounded-md shadow-xl hover:opacity-90"
               src="/logos/shdark.png"
               alt="Sharoku"
               width={75}
@@ -34,14 +34,14 @@ const NavUnlogged: FC<NavUnloggedProps> = ({}) => {
              </div>
       <div className="flex flex-row">
         <div className="flex flex-row p-2" onClick={() => handleLogin()}>
-          <p>Acceder</p>
+          <p className='hover:text-amber-700'>Acceder</p>
         </div>
         <div className="relative">
           <div
             className="flex flex-row p-2 items-center cursor-pointer"
             onClick={() => setSelectOpen(!selectOpen)}
           >
-            <p>Idioma ({pageLanguage})</p>
+            <p className='hover:text-amber-700'>Idioma ({pageLanguage})</p>
             <Image
               className="mx-2"
               src={`/${pageLanguage}.png`}
