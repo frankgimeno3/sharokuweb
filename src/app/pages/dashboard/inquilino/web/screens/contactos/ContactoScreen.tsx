@@ -6,7 +6,7 @@ interface ContactoScreenProps {
 
 const ContactoScreen: FC<ContactoScreenProps> = ({ }) => {
   return (
-    <div className='flex-col justify-center items-center text-center' >
+    <div className='flex-col justify-center items-center text-center w-full' >
     <p className='font-bold py-12 text-3xl '>Mis contactos</p>
  
     <div className='flex flex-col mx-5'>

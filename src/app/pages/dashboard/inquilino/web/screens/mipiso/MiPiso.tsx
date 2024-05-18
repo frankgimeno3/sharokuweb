@@ -6,8 +6,7 @@ interface MiPisoProps {
 
 const MiPiso: FC<MiPisoProps> = ({ }) => {
     return (
-
-        <div className='flex-col justify-center items-center text-center' >
+        <div className='flex-col justify-center items-center text-center w-full' >
             <p className='font-bold py-12 text-3xl '>Mi piso</p>
 
             <p>Sobre tu piso</p>

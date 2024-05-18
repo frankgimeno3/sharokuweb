@@ -6,7 +6,7 @@ interface PerfilScreenProps {
 
 const PerfilScreen: FC<PerfilScreenProps> = ({ }) => {
   return (
-    <div>PerfilScreen</div>
+    <div className='w-full'>PerfilScreen</div>
   );
 };
 

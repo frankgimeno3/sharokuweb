@@ -18,7 +18,7 @@ const BottomBar: FC<BottomBarProps> = ({ currentLeftBarElement, setCurrentLeftBa
   };
 
   return (
-    <nav className='flex flex-col bg-neutral-500 h-full text-white'>
+    <nav className='flex flex-col bg-neutral-500 h-full text-white w-52'>
       <div
         className={`flex flex-row items-center p-3 pl-6 py-4 text-center w-full ${hoveredElement === 'Mi Piso' || currentLeftBarElement === 'Mi Piso' ? 'bg-neutral-400' : ''
           }`}

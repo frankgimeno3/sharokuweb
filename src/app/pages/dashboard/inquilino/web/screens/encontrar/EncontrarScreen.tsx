@@ -6,7 +6,7 @@ interface EncontrarScreenProps {
 
 const EncontrarScreen: FC<EncontrarScreenProps> = ({ }) => {
   return (
-    <div className='flex-col justify-center items-center text-center' >
+    <div className='flex-col justify-center items-center text-center w-full' >
     <p className='font-bold py-12 text-3xl '>Encontrar</p>
  
     <div className='flex flex-col mx-5'>

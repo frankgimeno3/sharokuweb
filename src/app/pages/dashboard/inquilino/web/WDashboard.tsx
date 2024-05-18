@@ -4,7 +4,7 @@ import LeftBar from '@/app/components/logged/LeftBar';
 import { useSelector } from 'react-redux';
 import { selectUser, User } from '@/redux/features/userSlice'; // Importamos la interfaz User desde userSlice
 
-import PisoScreen from './screens/mipiso/PisoScreen';
+import PisoScreen from './screens/mipiso/MiPiso';
 import EncontrarScreen from './screens/encontrar/EncontrarScreen';
 import ContactoScreen from './screens/contactos/ContactoScreen';
 import PerfilScreen from './screens/perfil/PerfilScreen';
@@ -33,10 +33,17 @@ const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeft
 
   return (
     <div className='flex flex-col w-full min-h-screen' >
-        <TopNavbar />
+      <TopNavbar />
       <div className='flex flex-row w-full bg-gray-100 text-gray-500 h-full'>
         <LeftBar currentLeftBarElement={currentLeftBarElement} setCurrentLeftBarElement={setCurrentLeftBarElement} />
-        <PisoScreen/>
+        {currentLeftBarElement=="Mi Piso" &&
+        <PisoScreen />}
+        {currentLeftBarElement=="Encontrar" &&
+        <EncontrarScreen />}
+        {currentLeftBarElement=="Mis Contactos" &&
+        <ContactoScreen />}
+        {currentLeftBarElement=="Perfil" &&
+        <PerfilScreen />}
       </div>
     </div>
   );
