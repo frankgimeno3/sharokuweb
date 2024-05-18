@@ -1,6 +1,7 @@
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 import { signOut } from 'next-auth/react';
+import Image from 'next/image';
 
 interface TopNavbarProps {
 
@@ -8,23 +9,33 @@ interface TopNavbarProps {
 
 const TopNavbar: FC<TopNavbarProps> = ({ }) => {
     const router = useRouter();
-
+    const handleHome = () => {
+        router.push('/pages/dashboard');
+    };
     const handleCerrarSesion = async () => {
         router.push("/")
         setTimeout(() => {
-          signOut()
+            signOut()
         }, 1000);
-      };
-      
+    };
+
     return (
-        <nav className='flex flex-row justify-between align-center items-center bg-white text-gray-600 w-full p-5 text-xl'>
-            <p>Sharoku</p>
-            <div className='flex flex-row'>
-                <p className='px-5'>Notifications</p>
-                <p className='px-5'>Settings</p>
+        <nav className="flex flex-row justify-between px-5 py-3 items-center px-12 z-30 bg-white text-gray-600 w-full">
+            <div className='flex flex-row items-center' onClick={() => handleHome()}>
+                <Image
+                    className="mx-auto border rounded-md shadow-xl hover:opacity-90"
+                    src="/logos/shdark.png"
+                    alt="Sharoku"
+                    width={75}
+                    height={75}
+                />
+            </div>            
+            <div className='flex flex-row items-center'>
+                <p className='px-5 hover:text-amber-700'>Notificaciones</p>
+                <p className='px-5 hover:text-amber-700'>Ajustes</p>
                 <svg
-                    className="mx-12"
-                    fill="#000000"
+                    className="mx-12 hover:fill-amber-700 "
+                    fill="#000000 ¡"
                     height="35px"
                     width="35px"
                     version="1.1"
@@ -34,7 +45,7 @@ const TopNavbar: FC<TopNavbarProps> = ({ }) => {
                     viewBox="0 0 511.989 511.989"
                     xmlSpace="preserve"
                     onClick={() => handleCerrarSesion()}
-                    >
+                >
                     <g id="SVGRepo_bgCarrier" strokeWidth="0"> </g>
                     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                     <g id="SVGRepo_iconCarrier"> <g> <g> <g>
@@ -43,7 +54,7 @@ const TopNavbar: FC<TopNavbarProps> = ({ }) => {
                         <path d="M178.133,51.115h120.533c14.114,0,25.6,11.486,25.6,25.6v128c0,4.71,3.814,8.533,8.533,8.533 c4.719,0,8.533-3.823,8.533-8.533v-128c0-23.526-19.14-42.667-42.667-42.667H178.133c-4.71,0-8.533,3.823-8.533,8.533 S173.423,51.115,178.133,51.115z"></path> <path d="M332.8,298.582c-4.719,0-8.533,3.823-8.533,8.533v128c0,14.114-11.486,25.6-25.6,25.6H179.2 c-4.71,0-8.533,3.823-8.533,8.533s3.823,8.533,8.533,8.533h119.467c23.526,0,42.667-19.14,42.667-42.667v-128 C341.333,302.405,337.519,298.582,332.8,298.582z"></path> <path d="M511.343,252.655c-0.435-1.05-1.058-1.988-1.852-2.782l-85.325-85.333c-3.337-3.336-8.73-3.336-12.066,0 c-3.337,3.337-3.337,8.73,0,12.066l70.767,70.775H196.267c-4.71,0-8.533,3.823-8.533,8.533c0,4.71,3.823,8.533,8.533,8.533 h286.601L412.1,335.215c-3.337,3.337-3.337,8.73,0,12.066c1.664,1.664,3.849,2.5,6.033,2.5c2.185,0,4.369-0.836,6.033-2.5 l85.325-85.325c0.794-0.794,1.417-1.732,1.852-2.782C512.205,257.093,512.205,254.738,511.343,252.655z"></path>
                     </g></g></g></g>
                 </svg>
-                
+
             </div>
         </nav>
     );

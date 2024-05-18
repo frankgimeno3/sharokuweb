@@ -3,8 +3,7 @@ import TopNavbar from '@/app/components/logged/TopNavbar';
 import LeftBar from '@/app/components/logged/LeftBar';
 import { useSelector } from 'react-redux';
 import { selectUser, User } from '@/redux/features/userSlice'; // Importamos la interfaz User desde userSlice
-import MiPiso from './screens/mipiso/MiPiso';
-import NoPiso from './screens/mipiso/NoPiso';
+
 import PisoScreen from './screens/mipiso/PisoScreen';
 
 interface WDashboardProps {
@@ -30,10 +29,10 @@ const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeft
   }, [user]);
 
   return (
-    <div className='flex flex-row w-full' >
-      <LeftBar currentLeftBarElement={currentLeftBarElement} setCurrentLeftBarElement={setCurrentLeftBarElement} />
-      <div className='flex flex-col w-full bg-gray-100 text-gray-500'>
+    <div className='flex flex-col w-full min-h-screen' >
         <TopNavbar />
+      <div className='flex flex-row w-full bg-gray-100 text-gray-500 h-full'>
+      <LeftBar currentLeftBarElement={currentLeftBarElement} setCurrentLeftBarElement={setCurrentLeftBarElement} />
         <PisoScreen/>
       </div>
     </div>
