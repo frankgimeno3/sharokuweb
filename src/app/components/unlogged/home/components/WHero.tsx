@@ -43,7 +43,7 @@ const WHero: FC<WHeroProps> = ({ }) => {
   };
 
   return (
-    <div className='relative'>
+    <div className="relative h-screen">
       <video
         className="fixed top-0 left-0 object-cover h-screen w-screen bg-sky-900 overflow-hidden"
         src={videoUrl}

@@ -7,7 +7,7 @@ interface FooterProps {
 
 const Footer: FC<FooterProps> = ({ }) => {
   return (
-    <div className='bg-white text-gray-600 p-5 flex flex-row justify-end'>
+    <div className='bg-white text-gray-600 p-5 flex flex-row justify-end z-50'>
       <div className='flex flex-col p-5'>
         <p className='font-bold'>Sharoku</p>
         <p className='italic text-sm'> Alquiler y gestión de pisos compartidos</p>

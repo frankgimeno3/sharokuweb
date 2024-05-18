@@ -22,7 +22,7 @@ const NavUnlogged: FC<NavUnloggedProps> = ({}) => {
   };
 
   return (
-    <nav className="flex flex-row justify-between p-5 items-center px-12">
+    <nav className="flex flex-row justify-between p-5 items-center px-12 z-50 bg-white text-gray-600">
       <div onClick={() => handleHome()}>
         <p>Sharoku</p>
       </div>

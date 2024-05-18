@@ -20,8 +20,8 @@ export default function Home() {
   }
   
   return (
-    <div className="min-h-screen flex flex-col justify-between">
-    <main className="flex flex-col   ">
+    <div className="h-full flex flex-col justify-between">
+    <main className="flex flex-col w-full  ">
             <NavUnlogged />
       {isMobile ? <Mobile /> : <Web />}
     </main>

@@ -13,7 +13,7 @@ const Web: FC<WebProps> = ({ }) => {
   const [cookiesValue, setCookiesValue] = useState('')
 
   return (
-    <div className='flex flex-col p-5 relative'>
+    <div className='flex flex-col min-h-screen '>
       <WHero/>
       <WResumen/>
       <div className={`fixed bottom-5 left-10 z-50 mb-5 ${howIsCookies}`}>
