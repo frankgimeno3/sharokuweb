@@ -11,7 +11,7 @@ const Tipo: React.FC<TipoProps> = ({ userType, handleUserTypeChange }) => {
   const router = useRouter();
 
   return (
-    <div>
+    <div className='text-left'>
       <label htmlFor="userType" className="block text-sm font-medium leading-6 text-white">
         Tipo de cuenta
       </label>

@@ -13,7 +13,7 @@ const Correo: React.FC<CorreoProps> = ({ setEmail }) => {
 
 
   return (
-    <div>
+    <div className='text-left'>
     <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
       Correo electrónico
     </label>

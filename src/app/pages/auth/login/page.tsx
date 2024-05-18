@@ -30,7 +30,7 @@ const Login: FC<LoginProps> = () => {
   return (
     <div className="relative h-screen">
       <video
-        className="fixed top-0 left-0 object-cover h-screen w-screen bg-sky-900 overflow-hidden z-10"
+        className="fixed top-0 left-0 object-cover h-screen w-screen bg-gray-50 overflow-hidden z-10"
         src={videoUrl}
         autoPlay
         loop

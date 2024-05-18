@@ -84,21 +84,21 @@ const Signup: FC<SignupProps> = ({ }) => {
   return (
     <div className="relative h-screen">
       <video
-        className="fixed top-0 left-0 object-cover h-screen w-screen bg-sky-900 overflow-hidden z-10"
+        className="fixed top-0 left-0 object-cover h-screen w-screen bg-gray-50 overflow-hidden z-10"
         src={videoUrl}
         autoPlay
         loop
         muted
       ></video>
-      <div className="absolute w-full flex flex-col justify-center items-center text-center mt-24 pt-24 z-20">
+      <div className="absolute w-full flex flex-col   text-center   z-20 h-full ">
         <NavUnlogged />
 
         <form onSubmit={(e) => {
           e.preventDefault();
           signup();
-        }} className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"      >
-          <div className="space-y-6">
-
+        }} className="sm:mx-auto sm:w-full sm:max-w-3xl pt-36 bg-black bg-opacity-50 h-full w-full px-24">
+          <div className="space-y-12">
+            <p className='text-4xl '>Crear una cuenta</p>
             <Correo setEmail={setEmail} />
             <Tipo userType={userType} handleUserTypeChange={handleUserTypeChange} />
             <Contras setPassword={setPassword} setPasswordAgain={setPasswordAgain} />
@@ -108,7 +108,7 @@ const Signup: FC<SignupProps> = ({ }) => {
               <button
                 disabled={(!email || !password || !passwordAgain || !setNombre || !setApellidos || !setUbi) || (password !== passwordAgain)}
                 onClick={() => signup()}
-                className="disabled:opacity-40 flex w-full justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-amber-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-600 shadow-sm hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
               >
                 Crear cuenta
               </button>
