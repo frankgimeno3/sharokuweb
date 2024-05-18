@@ -45,13 +45,13 @@ const WHero: FC<WHeroProps> = ({ }) => {
   return (
     <div className="relative h-screen">
       <video
-        className="fixed top-0 left-0 object-cover h-screen w-screen bg-sky-900 overflow-hidden"
+        className="fixed top-0 left-0 object-cover h-screen w-screen bg-sky-900 overflow-hidden z-10"
         src={videoUrl}
         autoPlay
         loop
         muted
       ></video>
-      <div className="absolute w-full flex flex-col justify-center items-center text-center mt-24 pt-24">
+      <div className="absolute w-full flex flex-col justify-center items-center text-center mt-24 pt-24 z-20">
         <div className="bg-blue-500 bg-opacity-50 backdrop-filter backdrop-blur-lg w-full mt-24 py-10">
           <h1 className="text-4xl md:text-6xl text-sky-50 font-bold">
             SHAROKU

@@ -6,7 +6,7 @@ interface WResumenProps {
 
 const WResumen: FC<WResumenProps> = ({ }) => {
   return (
-    <div className='flex flex-col z-50   bg-opacity-80  bg-gray-50 text-gray-600 p-32'>
+    <div className='flex flex-col z-40   bg-opacity-80  bg-gray-50 text-gray-600 p-32'>
               <p className='font font-bold text-4xl py-5 text-center py-16'> Para quién es Sharoku?</p>
 
     <div className='flex flex-row mx-auto  '>
