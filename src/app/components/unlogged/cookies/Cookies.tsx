@@ -17,11 +17,11 @@ const Cookies: FC<CookiesProps> = ({setHowIsCookies, setCookiesValue }) => {
       <p className="text-left text-gray-600 mt-2 mb-4">Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestro sitio web.</p>
       <div className="flex ">
         <button onClick={()=>closeCookiesCard('aceptadas')}
-        className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg mr-4">
+        className="bg-amber-700 bg-opacity-40 hover:bg-opacity-30 text-white font-semibold py-2 px-4 rounded-lg mr-4">
           Aceptar
         </button>
         <button onClick={()=>closeCookiesCard('rechazadas')}
-        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">
+        className="bg-amber-700 bg-opacity-40 hover:bg-opacity-30 text-white font-semibold py-2 px-4 rounded-lg">
           Rechazar
         </button>
       </div>

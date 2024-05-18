@@ -20,12 +20,12 @@ export default function ForgotPassword() {
   const { data: session, status } = useSession()
 
   if (status === "authenticated") {
-    redirect('/dashboard');
+    redirect('/pages/dashboard');
   }
 
   
   useEffect(() => {
-    setVideoUrl("https://storage.cloud.google.com/vidriokubucket/perfiles.mp4");
+    setVideoUrl("https://sharoku.s3.eu-west-3.amazonaws.com/sharokuloop.mp4");
   }, []);
 
 
