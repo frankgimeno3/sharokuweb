@@ -22,10 +22,16 @@ const NavUnlogged: FC<NavUnloggedProps> = ({}) => {
   };
 
   return (
-    <nav className="flex flex-row justify-between p-5 items-center px-12 z-30 bg-white text-gray-600 w-full">
-      <div onClick={() => handleHome()}>
-        <p>Sharoku</p>
-      </div>
+    <nav className="flex flex-row justify-between px-5 py-3 items-center px-12 z-30 bg-white text-gray-600 w-full">
+      <div className='flex flex-row items-center' onClick={() => handleHome()}>
+      <Image
+              className="mx-auto border rounded-md shadow-xl"
+              src="/logos/shdark.png"
+              alt="Sharoku"
+              width={75}
+              height={75}
+            />      
+             </div>
       <div className="flex flex-row">
         <div className="flex flex-row p-2" onClick={() => handleLogin()}>
           <p>Acceder</p>

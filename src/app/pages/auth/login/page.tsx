@@ -3,6 +3,7 @@ import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
 import { signIn, useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 import React, { FC, useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface LoginProps { }
 
@@ -40,15 +41,22 @@ const Login: FC<LoginProps> = () => {
         <NavUnlogged />
 
         <form
-          className=" sm:mx-auto sm:w-full sm:max-w-3xl pt-36 bg-black bg-opacity-50 h-full w-full px-24"
-          onSubmit={(e) => {
+         className="sm:mx-auto sm:w-full sm:max-w-3xl pt-16 bg-black bg-opacity-50  w-full px-24 h-full" 
+        onSubmit={(e) => {
             e.preventDefault();
             signIn('credentials', { email, password, redirect: true, callbackUrl: '/pages/dashboard' });
           }}
         >
           <div className="space-y-12">
+          <Image
+              className="mx-auto rounded-md shadow-xl"
+              src="/logos/shwhite.png"
+              alt="Sharoku"
+              width={100}
+              height={100}
+            />
             <p className='text-4xl '>Iniciar sesión</p>
-            <div className='pt-12 text-left'>
+            <div className=' text-left'>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
                 Correo Electrónico
               </label>
@@ -60,7 +68,7 @@ const Login: FC<LoginProps> = () => {
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                  className="pl-3 block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -71,7 +79,7 @@ const Login: FC<LoginProps> = () => {
                   Contraseña
                 </label>
                 <div className="text-sm">
-                  <div onClick={() => router.push('/auth/forgot')} className="cursor-pointer font-semibold text-amber-200 hover:text-amber-500">
+                  <div onClick={() => router.push('/pages/auth/forgot')} className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300">
                     Olvidó su contraseña?
                   </div>
                 </div>
@@ -84,7 +92,7 @@ const Login: FC<LoginProps> = () => {
                   autoComplete="current-password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                  className="pl-3 block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -93,13 +101,13 @@ const Login: FC<LoginProps> = () => {
               <button
                 onClick={() => signIn('credentials', { email, password, redirect: true, callbackUrl: '/pages/dashboard' })}
                 disabled={!email || !password}
-                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-amber-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-600 shadow-sm hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-opacity-20 bg-orange-200 border border-orange-200   px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
               >
                 Iniciar sesión
               </button>
             </div>
             <div className="text-sm">
-              <div onClick={() => router.push('/pages/auth/signup')} className="cursor-pointer font-semibold text-amber-200 hover:text-amber-500">
+              <div onClick={() => router.push('/pages/auth/signup')} className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300">
                 No dispone de una cuenta? Crear cuenta
               </div>
             </div>

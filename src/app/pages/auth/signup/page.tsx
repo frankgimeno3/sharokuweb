@@ -9,6 +9,7 @@ import { doc, setDoc } from '@firebase/firestore';
 import { auth, db } from '@/app/firebase';
 import { createUserWithEmailAndPassword } from '@firebase/auth';
 import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
+import Image from 'next/image';
 
 interface SignupProps {
 
@@ -82,7 +83,7 @@ const Signup: FC<SignupProps> = ({ }) => {
     }, 3500);
   };
   return (
-    <div className="relative h-screen">
+    <div className="relative min-h-screen">
       <video
         className="fixed top-0 left-0 object-cover h-screen w-screen bg-gray-50 overflow-hidden z-10"
         src={videoUrl}
@@ -96,20 +97,27 @@ const Signup: FC<SignupProps> = ({ }) => {
         <form onSubmit={(e) => {
           e.preventDefault();
           signup();
-        }} className="sm:mx-auto sm:w-full sm:max-w-3xl pt-36 bg-black bg-opacity-50 h-full w-full px-24">
-          <div className="space-y-12">
+        }} className="sm:mx-auto sm:w-full sm:max-w-3xl pt-16 bg-black bg-opacity-50  w-full px-24 pb-16">
+          <div className="space-y-12 ">
+          <Image
+              className="mx-auto rounded-md shadow-xl"
+              src="/logos/shwhite.png"
+              alt="Sharoku"
+              width={100}
+              height={100}
+            />
             <p className='text-4xl '>Crear una cuenta</p>
             <Correo setEmail={setEmail} />
             <Tipo userType={userType} handleUserTypeChange={handleUserTypeChange} />
             <Contras setPassword={setPassword} setPasswordAgain={setPasswordAgain} />
 
 
-            <div>
+            <div className=''>
               <button
                 disabled={(!email || !password || !passwordAgain || !setNombre || !setApellidos || !setUbi) || (password !== passwordAgain)}
                 onClick={() => signup()}
-                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-amber-300 px-3 py-1.5 text-sm font-semibold leading-6 text-gray-600 shadow-sm hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
-              >
+                className="disabled:opacity-50 disabled:text-white flex w-full justify-center rounded-md bg-opacity-20 bg-orange-200 border border-orange-200   px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                >
                 Crear cuenta
               </button>
             </div>
