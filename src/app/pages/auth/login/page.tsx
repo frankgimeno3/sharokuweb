@@ -71,7 +71,7 @@ const Login: FC<LoginProps> = () => {
                   Contraseña
                 </label>
                 <div className="text-sm">
-                  <div onClick={() => router.push('/forgot-password')} className="cursor-pointer font-semibold text-amber-200 hover:text-amber-500">
+                  <div onClick={() => router.push('/auth/forgot')} className="cursor-pointer font-semibold text-amber-200 hover:text-amber-500">
                     Olvidó su contraseña?
                   </div>
                 </div>
