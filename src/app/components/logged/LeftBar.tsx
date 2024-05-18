@@ -31,7 +31,7 @@ const BottomBar: FC<BottomBarProps> = ({ currentLeftBarElement, setCurrentLeftBa
           <polygon stroke="white" stroke-width="2" stroke-miterlimit="10" points="32,3 2,33 11,33 11,63 23,63 23,47 39,47 
 	          39,63 51,63 51,33 62,33 "/>
         </svg>
-        <p className='pl-3'>Mi Piso</p>
+        <p className='pl-3'>Mi piso</p>
       </div>
       <div
         className={`flex flex-row items-center p-3 pl-6 py-4 text-center w-full ${hoveredElement === 'Encontrar' || currentLeftBarElement === 'Encontrar' ? 'bg-neutral-400' : ''
@@ -54,7 +54,7 @@ const BottomBar: FC<BottomBarProps> = ({ currentLeftBarElement, setCurrentLeftBa
         onClick={() => handleClick('Mis Contactos')}
       >
         <svg className="h-5 w-5 jam jam-message" fill="white" width="800px" height="800px" viewBox="-2 -2.5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin"  ><path d='M9.378 12H17a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1 1 1 0 0 1 1 1v3.013L9.378 12zM3 0h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-6.958l-6.444 4.808A1 1 0 0 1 2 18.006V14a2 2 0 0 1-2-2V3a3 3 0 0 1 3-3z' /></svg>
-        <p className='pl-3'>Mis Contactos</p>
+        <p className='pl-3'>Mis contactos</p>
       </div>
       <div
         className={`flex flex-row items-center p-3 pl-6 py-4 text-center w-full ${hoveredElement === 'Perfil' || currentLeftBarElement === 'Perfil' ? 'bg-neutral-400' : ''

@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 import { selectUser, User } from '@/redux/features/userSlice'; // Importamos la interfaz User desde userSlice
 
 import PisoScreen from './screens/mipiso/PisoScreen';
+import EncontrarScreen from './screens/encontrar/EncontrarScreen';
+import ContactoScreen from './screens/contactos/ContactoScreen';
+import PerfilScreen from './screens/perfil/PerfilScreen';
 
 interface WDashboardProps {
   currentLeftBarElement: any;
@@ -32,7 +35,7 @@ const WDashboard: FC<WDashboardProps> = ({ currentLeftBarElement, setCurrentLeft
     <div className='flex flex-col w-full min-h-screen' >
         <TopNavbar />
       <div className='flex flex-row w-full bg-gray-100 text-gray-500 h-full'>
-      <LeftBar currentLeftBarElement={currentLeftBarElement} setCurrentLeftBarElement={setCurrentLeftBarElement} />
+        <LeftBar currentLeftBarElement={currentLeftBarElement} setCurrentLeftBarElement={setCurrentLeftBarElement} />
         <PisoScreen/>
       </div>
     </div>
