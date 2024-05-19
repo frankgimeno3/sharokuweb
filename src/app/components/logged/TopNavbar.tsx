@@ -13,9 +13,9 @@ const TopNavbar: FC<TopNavbarProps> = ({ }) => {
         router.push('/pages/dashboard');
     };
     const handleCerrarSesion = async () => {
-        router.push("/")
         setTimeout(() => {
             signOut()
+            router.push("/")
         }, 1000);
     };
 

@@ -1,15 +1,16 @@
-"use client"
+"use client";
 import NavUnlogged from '@/app/components/unlogged/nav/NavUnlogged';
 import { signIn, useSession } from 'next-auth/react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 
-interface LoginProps { }
+interface LoginProps {}
 
 const Login: FC<LoginProps> = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const { data: session, status } = useSession();
   const router = useRouter();
   const [videoUrl, setVideoUrl] = useState("");
@@ -18,15 +19,27 @@ const Login: FC<LoginProps> = () => {
     setVideoUrl("https://sharoku.s3.eu-west-3.amazonaws.com/sharokuloop.mp4");
   }, []);
 
-  // useEffect para hacer console.log de email y password cuando cambian
   useEffect(() => {
     console.log("Email:", email);
     console.log("Password:", password);
   }, [email, password]);
 
-  if (status === "authenticated") {
-    redirect('/pages/dashboard');
-  }
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push('/pages/dashboard');
+    }
+  }, [status, router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    const result = await signIn('credentials', { email, password, redirect: false });
+    if (result?.error) {
+      setError('Las credenciales son incorrectas, por favor inténtelo de nuevo.');
+    } else {
+      router.push('/pages/dashboard');
+    }
+  };
 
   return (
     <div className="relative h-screen">
@@ -37,26 +50,22 @@ const Login: FC<LoginProps> = () => {
         loop
         muted
       ></video>
-      <div className="absolute w-full flex flex-col   text-center   z-20 h-full ">
+      <div className="absolute w-full flex flex-col text-center z-20 h-full">
         <NavUnlogged />
-
         <form
-         className="sm:mx-auto sm:w-full sm:max-w-3xl pt-16 bg-black bg-opacity-50  w-full px-24 h-full" 
-        onSubmit={(e) => {
-            e.preventDefault();
-            signIn('credentials', { email, password, redirect: true, callbackUrl: '/pages/dashboard' });
-          }}
+          className="sm:mx-auto sm:w-full sm:max-w-3xl pt-16 bg-black bg-opacity-50 w-full px-24 h-full"
+          onSubmit={handleSubmit}
         >
           <div className="space-y-12">
-          <Image
+            <Image
               className="mx-auto rounded-md shadow-xl"
               src="/logos/shwhite.png"
               alt="Sharoku"
               width={100}
               height={100}
             />
-            <p className='text-4xl '>Iniciar sesión</p>
-            <div className=' text-left'>
+            <p className="text-4xl">Iniciar sesión</p>
+            <div className="text-left">
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
                 Correo Electrónico
               </label>
@@ -72,15 +81,17 @@ const Login: FC<LoginProps> = () => {
                 />
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-white">
                   Contraseña
                 </label>
                 <div className="text-sm">
-                  <div onClick={() => router.push('/pages/auth/forgot')} className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300">
-                    Olvidó su contraseña?
+                  <div
+                    onClick={() => router.push('/pages/auth/forgot')}
+                    className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300"
+                  >
+                    ¿Olvidó su contraseña?
                   </div>
                 </div>
               </div>
@@ -96,19 +107,26 @@ const Login: FC<LoginProps> = () => {
                 />
               </div>
             </div>
-
+            {error && (
+              <div className="text-red-500 text-sm mt-2">
+                {error}
+              </div>
+            )}
             <div>
               <button
-                onClick={() => signIn('credentials', { email, password, redirect: true, callbackUrl: '/pages/dashboard' })}
+                type="submit"
                 disabled={!email || !password}
-                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-opacity-20 bg-orange-200 border border-orange-200   px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+                className="disabled:opacity-50 disabled:text-black flex w-full justify-center rounded-md bg-opacity-20 bg-orange-200 border border-orange-200 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
               >
                 Iniciar sesión
               </button>
             </div>
             <div className="text-sm">
-              <div onClick={() => router.push('/pages/auth/signup')} className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300">
-                No dispone de una cuenta? Crear cuenta
+              <div
+                onClick={() => router.push('/pages/auth/signup')}
+                className="cursor-pointer font-semibold text-orange-200 hover:text-orange-300"
+              >
+                ¿No dispone de una cuenta? Crear cuenta
               </div>
             </div>
           </div>
